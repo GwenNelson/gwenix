@@ -1,0 +1,43 @@
+Bootloader
+	In paper tape format, loads the kernel in a.out format from a disk
+	Uses very simplistic console I/O
+	Hit enter to boot, or a bunch of commands:
+		boot <kernel>
+			boot kernel from a specified filename
+		reboot
+			reboot the machine
+		halt
+			halt the machine
+
+	Gets amount of RAM etc to pass to the kernel?
+
+
+Kernel drivers
+	As many as possible are written in assembly
+	
+	Character device drivers
+		Provide read/write and optionally open
+		Open returns a void* to a device-specific file descriptor
+		For some devices, open just returns the same singleton file descriptor
+		For some devices, open may specify which out of a class of devices to use
+	Block device drivers
+		Provid init, read/write and open
+		init gets the device ready to go
+
+Kernel is mapped into every address space
+Look at separating I/D memory spaces
+
+Layout
+	tools/
+			tools for building the system including object/binary format conversion
+	toolchain/
+			scripts for building a GNU toolchain for the PDP-11
+	boot/
+			source code for the bootloader
+	kernel/
+			source code for the kernel core
+	kernel/drivers/
+			source code for various device drivers
+	user/
+			source code for userland programs
+
