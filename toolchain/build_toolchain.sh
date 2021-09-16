@@ -46,7 +46,7 @@ echo "Building gcc..."
 
 mkdir build-pdp11-aout
 pushd build-pdp11-aout
-../configure --target=pdp11-aout --prefix=${PWD}/../../bin--enable-languages=c --disable-libstdc++-v3 --disable-libssp --disable-libgfortran --disable-libobjc &>>build.log
+../configure --target=pdp11-aout --prefix=${PWD}/../../bin --enable-languages=c --disable-libstdc++-v3 --disable-libssp --disable-libgfortran --disable-libobjc &>>build.log
 make && make install &>>build.log
 popd
 popd
